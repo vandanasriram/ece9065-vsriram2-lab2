@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ECE 9065 - Lab 2</title>
+<meta charset="UTF-8">
+</head> 
+<body>
+<h1>User Information</h1>
+<div id="logout"></div>
+<div id="first">
+<form id="login_form" name="loginform" onsubmit="onSubmit()">
+    <fieldset>
+        <legend>Register:</legend><br>
+        <label>Name:</label>
+        <input type="text" name="username" id="username" required placeholder="Username" maxlength="100"><br><br>
+        <label>Email:</label>       
+        <input type="email" name="email" id="email" required placeholder="Email address"/><br><br>
+        <label>Year of Bsirth:</label>
+        <select name="dob" id="birth-year" required>
+        <option value="" disabled selected>Year of birth</option>
+        </select><br><br>
+        <input type="submit" value="Submit" id="submit"/>
+    </fieldset>    
+</form>
+</div>
+<div id="second">
+<h1 id="lib-co-heading">Library Checkout</h1>
+<div id="librarian-items">
+</div>
+<h2>Items Available:</h2>
+<ol id="available-items">
+</ol>
+<h2 id="checkout-heading">Checkout List:</h2>
+<ol id="basket">
+</ol>
+<br>
+<button type="button" id="checkout-button" onclick="onCheckout()">Checkout</button>
+</div>
+<script type='text/javascript' src='/script.js'></script>
+</body>
+</html>
