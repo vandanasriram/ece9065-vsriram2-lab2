@@ -330,7 +330,7 @@ function addItem() {
     var itemObj = { item_name: "", category: "" , imgUrl:"",item_name2:""};
     itemObj.item_name = addItemName;
     itemObj.category = addItemCategory;
-    itemObj.imgUrl = "img/"+addItemName+".jpg";
+    itemObj.imgUrl = "images/niagra.jpg";
     itemObj.item_name2 = addItemName2;
     itemsAvailable.push(itemObj);
     alert("item Added successfully" + "\n" + "See the updated list below");
