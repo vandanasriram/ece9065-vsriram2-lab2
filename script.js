@@ -307,4 +307,73 @@ function logoutAdmin() {
         }
         adminLogoutFlag = true;
     }
+}function addItem() {
+    if (!document.getElementById("library-checkout-details").classList.contains("display-none")) {
+        document.getElementById("library-checkout-details").classList.add("display-none");
+    }
+    if (document.getElementById("library-items-details").classList.contains("display-none")) {
+        document.getElementById("library-items-details").classList.remove("display-none")
+    }
+    var addItemName = document.getElementById("item-name").value;
+    var addItemCategory = document.getElementById("category").value;
+    var addItemName2 = document.getElementById("item-name2").value;
+    var itemObj = { item_name: "", category: "" , imgUrl:"",item_name2:""};
+    itemObj.item_name = addItemName;
+    itemObj.category = addItemCategory;
+    itemObj.imgUrl = "img/"+addItemName+".jpg";
+    itemObj.item_name2 = addItemName2;
+    itemsAvailable.push(itemObj);
+    alert("item Added successfully" + "\n" + "See the updated list below");
+    deleteAvailNodes("#available-items");
+    loadAvailableItems(secLangflag);
+
+}
+function removeItem() {
+    if (!document.getElementById("library-checkout-details").classList.contains("display-none")) {
+        document.getElementById("library-checkout-details").classList.add("display-none");
+    }
+    if (document.getElementById("library-items-details").classList.contains("display-none")) {
+        document.getElementById("library-items-details").classList.remove("display-none")
+    }
+    var addItemName = document.getElementById("item-name").value;
+    var addItemCategory = document.getElementById("category").value;
+    var itemLen = itemsAvailable.length;
+    var removeFlag = false;
+    for (var i = 0; i < itemLen; i++) {
+        if ((addItemName === itemsAvailable[i].item_name || addItemName === itemsAvailable[i].item_name2) && addItemCategory === itemsAvailable[i].category) {
+            itemsAvailable.splice(i, 1);
+            removeFlag = true;
+            break;
+        }
+    }
+    if (removeFlag == false) {
+        alert("Item not found");
+    }
+    else {
+        alert("removed successfully" + "\n" + "See the updated list below");
+        deleteAvailNodes("#available-items");
+        loadAvailableItems(secLangflag);
+    }
+}
+
+function updateDueDate() {
+    if (!document.getElementById("library-checkout-details").classList.contains("display-none")) {
+        document.getElementById("library-checkout-details").classList.add("display-none");
+    }
+    if (document.getElementById("library-items-details").classList.contains("display-none")) {
+        document.getElementById("library-items-details").classList.remove("display-none")
+    }
+    var name = document.getElementById("name").value;
+    var year = document.getElementById("birth-year").value;
+    var dueItemCategory = document.getElementById("due-category").value;
+    var newDueday = document.getElementById("due-value").value;
+
+    if (name === "admin" && Number(year) === 1867) {
+        dueDatesObj[dueItemCategory] = Number(newDueday);
+    }
+    document.getElementById("bookdue").innerText = dueDatesObj.book;
+    document.getElementById("cddue").innerText = dueDatesObj.cd;
+    alert("Due date updated successfully" + "\n" + "See the updated list below");
+    deleteAvailNodes("#available-items");
+    loadAvailableItems(secLangflag);
 }
