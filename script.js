@@ -377,3 +377,26 @@ function updateDueDate() {
     deleteAvailNodes("#available-items");
     loadAvailableItems(secLangflag);
 }
+function logoutAdmin() {
+    var name = document.getElementById("name").value;
+    var year = document.getElementById("birth-year").value;
+    if (name === "admin" && Number(year) === 1867) {
+        if (!document.getElementById("admin-ops").classList.contains("display-none")) {
+            document.getElementById("admin-ops").classList.add("display-none");
+            document.getElementById("name").value = "";
+            document.getElementById("birth-year").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("info").innerText ="";
+        }
+        if (!document.getElementById("library-checkout-details").classList.contains("display-none")) {
+            document.getElementById("library-checkout-details").classList.add("display-none");
+        }
+        if (!document.getElementById("library-items-details").classList.contains("display-none")) {
+            document.getElementById("library-items-details").classList.add("display-none");
+        }
+        if(document.getElementById("login-page").classList.contains("display-none")){
+            document.getElementById("login-page").classList.remove("display-none")
+        }
+        adminLogoutFlag = true;
+    }
+}
