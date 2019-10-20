@@ -400,3 +400,13 @@ function logoutAdmin() {
         adminLogoutFlag = true;
     }
 }
+function displaySecondLang() {
+    var checkboxElement = document.getElementById("lang");
+    if(checkboxElement.checked) {
+        secLangflag = true;
+    }
+    else {
+        secLangflag = false;
+    }
+    checkOutCall(secLangflag);
+}
